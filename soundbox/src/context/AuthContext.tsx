@@ -107,21 +107,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setIsLoading(false);
   };
 
+  // In the register function, remove the password from the destructuring:
   const register = async (
     username: string,
     email: string,
     password: string
   ) => {
     setIsLoading(true);
-
+  
     // Simulate API request delay
     await new Promise((resolve) => setTimeout(resolve, 800));
-
+  
     // Check if user already exists
     const userExists = MOCK_USERS.some(
       (u) => u.email.toLowerCase() === email.toLowerCase()
     );
-
+  
     if (userExists) {
       toast({
         title: "Registration failed",
@@ -140,7 +141,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           mixdownExports: 0,
         },
       };
-
+  
       setUser(newUser);
       localStorage.setItem("soundboard_user", JSON.stringify(newUser));
       toast({
@@ -149,7 +150,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       });
       navigate("/dashboard");
     }
-
+  
     setIsLoading(false);
   };
 

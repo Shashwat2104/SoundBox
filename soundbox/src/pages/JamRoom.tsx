@@ -35,7 +35,7 @@ const JamRoomContent = () => {
     fetchNewTracks,
     setCurrentRoomId,
   } = useAudio();
-  const [isPolling, setIsPolling] = useState(true);
+  const [isPolling] = useState(false);
   const [newTrackCount, setNewTrackCount] = useState(0);
 
   // Redirect if not authenticated
