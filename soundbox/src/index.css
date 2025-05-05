@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 40% 98%;
+    --foreground: 260 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 10% 10%;
+
+    --primary: 265 83.3% 45.9%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 40% 96.1%;
+    --secondary-foreground: 260 10% 10%;
+
+    --muted: 260 40% 96.1%;
+    --muted-foreground: 260 15% 46.9%;
+
+    --accent: 260 40% 96.1%;
+    --accent-foreground: 260 10% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 20% 91.4%;
+    --input: 260 20% 91.4%;
+    --ring: 265 83.3% 45.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 260 40% 98%;
+    --sidebar-foreground: 260 10% 26.1%;
+    --sidebar-primary: 265 83.3% 45.9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 260 40% 95.9%;
+    --sidebar-accent-foreground: 260 10% 10%;
+    --sidebar-border: 260 20% 91%;
+    --sidebar-ring: 265 83.3% 59.8%;
+  }
+
+  .dark {
+    --background: 260 30% 10%;
+    --foreground: 260 20% 98%;
+
+    --card: 260 30% 10%;
+    --card-foreground: 260 20% 98%;
+
+    --popover: 260 30% 10%;
+    --popover-foreground: 260 20% 98%;
+
+    --primary: 265 83.3% 65.9%;
+    --primary-foreground: 260 10% 10%;
+
+    --secondary: 260 30% 17.5%;
+    --secondary-foreground: 260 20% 98%;
+
+    --muted: 260 30% 17.5%;
+    --muted-foreground: 260 20% 65.1%;
+
+    --accent: 260 30% 17.5%;
+    --accent-foreground: 260 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 260 20% 98%;
+
+    --border: 260 30% 17.5%;
+    --input: 260 30% 17.5%;
+    --ring: 265 83.3% 65.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .track-volume::-webkit-slider-thumb {
+    @apply bg-music-primary;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+  
+  .waveform-container {
+    @apply relative w-full h-24 bg-music-dark/10 rounded-md overflow-hidden;
+  }
+  
+  .waveform-bar {
+    @apply absolute bg-music-primary/60 bottom-0 w-1 rounded-t-sm;
+    transform-origin: bottom;
+    animation: wave 0.8s infinite ease-in-out;
+  }
+
+  .waveform-bar:nth-child(2n) {
+    animation-delay: 0.1s;
+  }
+
+  .waveform-bar:nth-child(3n) {
+    animation-delay: 0.2s;
+  }
+
+  .waveform-bar:nth-child(4n) {
+    animation-delay: 0.3s;
+  }
+
+  .waveform-bar:nth-child(5n) {
+    animation-delay: 0.4s;
+  }
+
+  .track-container {
+    @apply flex flex-col gap-2 bg-music-light dark:bg-music-dark/30 p-4 rounded-lg border border-music-accent/20;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-music-primary to-purple-400;
+  }
+
+  .audio-wave-active {
+    @apply animate-wave;
+  }
+}
