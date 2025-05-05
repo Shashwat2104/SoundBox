@@ -111,7 +111,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const register = async (
     username: string,
     email: string,
-    password: string
+    // password: string
   ) => {
     setIsLoading(true);
   
