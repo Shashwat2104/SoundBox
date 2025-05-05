@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAudio } from "@/context/AudioContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mic, Square, } from "lucide-react";
+import { Mic, Square} from "lucide-react";
 import { generateLiveWaveformData } from "@/utils/audioUtils";
 
 interface AudioRecorderProps {

@@ -22,7 +22,7 @@ type AuthContextType = {
   register: (
     username: string,
     email: string,
-    password: string
+    password: string // Required for validation but not stored in user object
   ) => Promise<void>;
 };
 
